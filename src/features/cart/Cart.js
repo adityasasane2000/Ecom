@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import {
   increment,
   incrementAsync,
-  selectCount,
 } from './cartSlice';
 
 import { Dialog, Transition } from '@headlessui/react'
@@ -37,7 +36,6 @@ const products = [
 
 
 export default function Cart() {
-  const count = useSelector(selectCount);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true)
 

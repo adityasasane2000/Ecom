@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import {
   increment,
   incrementAsync,
-  selectCount,
 } from '../authSlice';
 
 export default function Login() {
-  const count = useSelector(selectCount);
   const dispatch = useDispatch();
 
 
