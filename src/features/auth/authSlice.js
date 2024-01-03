@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { createUser } from './authAPI';
+import { checkUser, createUser } from './authAPI';
 
 const initialState = {
   loggedInUser: null,
   status: 'idle',
+  error: null
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -15,6 +16,15 @@ export const createuserAsync = createAsyncThunk(
   'user/createuser',
   async (userData) => {
     const response = await createUser(userData);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+
+export const checkuserAsync = createAsyncThunk(
+  'user/checkuser',
+  async (loginInfo) => {
+    const response = await checkUser(loginInfo);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
@@ -43,6 +53,17 @@ export const counterSlice = createSlice({
       .addCase(createuserAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.loggedInUser += action.payload;
+      })
+      .addCase(checkuserAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(checkuserAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.loggedInUser += action.payload;
+      })
+      .addCase(checkuserAsync.rejected, (state, action) => {
+        state.status = 'idle';
+        state.error += action.error;
       });
   },
 });
@@ -50,5 +71,6 @@ export const counterSlice = createSlice({
 export const { increment } = counterSlice.actions;
 
 export const selectLoggedInUser = (state) => state.auth.loggedInUser;
+export const selectError = (state) => state.auth.error;
 
 export default counterSlice.reducer;
