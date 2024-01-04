@@ -2357,9 +2357,56 @@
       "email": "aadya123@gmail.com",
       "password": "123@Abcd",
       "id": 1
+    },
+    {
+      "email": "adityasasane50@gmail.com",
+      "password": "123@Ramsham",
+      "id": 2
     }
   ],
   "cart": [
+    {
+      "id": 9,
+      "title": "Infinix INBOOK",
+      "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+      "price": 1099,
+      "discountPercentage": 11.83,
+      "rating": 4.54,
+      "stock": 96,
+      "brand": "Infinix",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/9/1.jpg",
+        "https://i.dummyjson.com/data/products/9/2.png",
+        "https://i.dummyjson.com/data/products/9/3.png",
+        "https://i.dummyjson.com/data/products/9/4.jpg",
+        "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 2
+    },
+    {
+      "id": 57,
+      "title": "Loafers for men",
+      "description": "Men Shoes - Loafers for men - Rubber Shoes - Nylon Shoes - Shoes for men - Moccassion - Pure Nylon (Rubber) Expot Quality.",
+      "price": 47,
+      "discountPercentage": 10.91,
+      "rating": 4.91,
+      "stock": 20,
+      "brand": "Rubber",
+      "category": "mens-shoes",
+      "thumbnail": "https://i.dummyjson.com/data/products/57/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/57/1.jpg",
+        "https://i.dummyjson.com/data/products/57/2.jpg",
+        "https://i.dummyjson.com/data/products/57/3.jpg",
+        "https://i.dummyjson.com/data/products/57/4.jpg",
+        "https://i.dummyjson.com/data/products/57/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 2
+    },
     {
       "id": 2,
       "title": "iPhone X",
@@ -2379,45 +2426,6 @@
       ],
       "deleted": true,
       "quantity": 1,
-      "user": 1
-    },
-    {
-      "id": 6,
-      "title": "MacBook Pro",
-      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-      "price": 1999,
-      "discountPercentage": 11.02,
-      "rating": 0,
-      "stock": 83,
-      "brand": "Apple",
-      "category": "laptops",
-      "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
-      "images": [
-        "https://i.dummyjson.com/data/products/6/1.png",
-        "https://i.dummyjson.com/data/products/6/2.jpg",
-        "https://i.dummyjson.com/data/products/6/3.png",
-        "https://i.dummyjson.com/data/products/6/thumbnail.png"
-      ],
-      "quantity": 1,
-      "user": 1
-    },
-    {
-      "id": 5,
-      "title": "Huawei P30",
-      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-      "price": 499,
-      "discountPercentage": 10.58,
-      "rating": 4.09,
-      "stock": 32,
-      "brand": "Huawei",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/5/1.jpg",
-        "https://i.dummyjson.com/data/products/5/2.jpg",
-        "https://i.dummyjson.com/data/products/5/3.jpg"
-      ],
-      "quantity": 2,
       "user": 1
     }
   ],

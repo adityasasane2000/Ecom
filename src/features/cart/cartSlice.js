@@ -30,6 +30,14 @@ export const updateCartAsync = createAsyncThunk(
   }
 );
 
+export const deleteItemFromCartAsync = createAsyncThunk(
+  'cart/deleteItemFromCart',
+  async (itemId) => {
+    const response = await deleteItemFromCart(itemId);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
 
 
 export const fetchItemsByUserIdAsync = createAsyncThunk(
@@ -80,6 +88,14 @@ export const cartSlice = createSlice({
         const idx = state.items.findIndex(item=>item.id===action.payload.id)
         state.items[idx] = action.payload;
       })
+      .addCase(deleteItemFromCartAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(deleteItemFromCartAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        const idx = state.items.findIndex(item=>item.id===action.payload.id)
+        state.items.splice(idx,1);
+      });
   },
 });
 
