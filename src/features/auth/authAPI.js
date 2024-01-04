@@ -14,7 +14,7 @@ export function createUser(userData) {
 }
 
 export function checkUser(loginInfo) {
-  return new Promise(async (resolve) => {
+  return new Promise(async (resolve,reject) => {
     const email = loginInfo.email;
     const password = loginInfo.password;
 
@@ -22,7 +22,7 @@ export function checkUser(loginInfo) {
     const data = await response.json()
 
     if(data.length){
-      if(password === loginInfo.password){
+      if(password === data[0].password){
         resolve({data:data[0]})
       }else{
         Promise.reject({message:'wrong credentials'})

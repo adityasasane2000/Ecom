@@ -2,14 +2,14 @@ import React, { useState, Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
-  increment,
-  incrementAsync,
+  fetchItemsByUserIdAsync,
   selectCartitems
 } from './cartSlice';
 
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { updateCartAsync } from '../cart/cartSlice';
+import { selectLoggedInUser } from '../auth/authSlice';
 
 
 
@@ -17,6 +17,7 @@ export default function Cart() {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true)
   const cartProducts = useSelector(selectCartitems);
+  const user = useSelector(selectLoggedInUser);
 
   const totalAmount = cartProducts.reduce((amount,item)=>item.price*item.quantity + amount,0);
   const totalItemsCount = cartProducts.reduce((total,item)=>item.quantity + total,0);
@@ -24,6 +25,7 @@ export default function Cart() {
   const handleQuantity = (e,product) =>{
     dispatch(updateCartAsync({...product,quantity:+e.target.value}))
   }
+
 
   return (
     <>
@@ -58,10 +60,10 @@ export default function Cart() {
                         <label htmlFor="quantity" className="inline mr-5 text-sm font-medium leading-6 text-gray-900">
                           Qty
                         </label>
-                        <select onChange={(e) => handleQuantity(e,product)}>
+                        <select onChange={(e) => handleQuantity(e,product)} value={product.quantity}>
                           <option value="1">1</option>
                           <option value="2">2</option>
-                          <option value="3" selected="selected">3</option>
+                          <option value="3">3</option>
                           <option value="4">4</option>
                           <option value="5">5</option>
                         </select>

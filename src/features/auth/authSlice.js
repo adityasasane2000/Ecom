@@ -31,7 +31,7 @@ export const checkuserAsync = createAsyncThunk(
 );
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: 'user',
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
@@ -52,18 +52,18 @@ export const counterSlice = createSlice({
       })
       .addCase(createuserAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.loggedInUser += action.payload;
+        state.loggedInUser = action.payload;
       })
       .addCase(checkuserAsync.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(checkuserAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.loggedInUser += action.payload;
+        state.loggedInUser = action.payload;
       })
       .addCase(checkuserAsync.rejected, (state, action) => {
         state.status = 'idle';
-        state.error += action.error;
+        state.error = action.error;
       });
   },
 });
