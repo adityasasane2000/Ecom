@@ -42,7 +42,7 @@ let ProductDetail = () => {
     e.preventDefault();
     const newItem = ({...product,quantity:1,user:user.id});
     delete newItem['id']
-    dispatch(addToCartAsync({...product,quantity:1,user:user.id}))
+    dispatch(addToCartAsync(newItem));
   }
 
   useEffect(() =>{
