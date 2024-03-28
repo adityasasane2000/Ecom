@@ -13,7 +13,7 @@ import { useForm } from "react-hook-form"
 
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { createOrderAsync, } from '../features/order/orderSlice';
+import { createOrderAsync, selectCurrentOrder } from '../features/order/orderSlice';
 
 const products = [
     {
@@ -65,7 +65,8 @@ let CheckoutPage = () => {
     const [open, setOpen] = useState(true)
     const cartProducts = useSelector(selectCartitems);
     const user = useSelector(selectLoggedInUser);
-    
+    const currentOrder = useSelector(selectCurrentOrder);
+
     const totalAmount = cartProducts.reduce((amount, item) => item.price * item.quantity + amount, 0);
     const totalItemsCount = cartProducts.reduce((total, item) => item.quantity + total, 0);
 
@@ -89,7 +90,7 @@ let CheckoutPage = () => {
     }
 
     const handleOrder = (e) => {
-        const order = {cartProducts,totalAmount,totalItemsCount,user,paymentMethod,selectedAddress}
+        const order = {cartProducts,totalAmount,totalItemsCount,user,paymentMethod,selectedAddress,status:'pending'};
         dispatch(createOrderAsync(order));
     }
 
@@ -104,7 +105,7 @@ let CheckoutPage = () => {
     return (
         <>
             {!cartProducts.length && <Navigate to='/' replace={true}></Navigate>}
-
+            {currentOrder && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 
                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
