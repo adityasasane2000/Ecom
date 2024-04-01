@@ -49,4 +49,14 @@ export function updateUser(update) {
   }
   );
 }
+
+export function signOutUser(userId) {
+  return new Promise(async (resolve) => {
+    
+    
+    //TODO
+    resolve({ data : "Sucess" })
+  }
+  );
+}
  

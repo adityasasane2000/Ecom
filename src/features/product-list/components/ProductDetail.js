@@ -33,6 +33,7 @@ let ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState(colors[0])
   const [selectedSize, setSelectedSize] = useState(sizes[2])
   const user = useSelector(selectLoggedInUser);
+  // console.log(user);
 
   const product = useSelector(selectProductById);
   const dispatch = useDispatch()

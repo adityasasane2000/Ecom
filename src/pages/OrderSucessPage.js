@@ -8,7 +8,7 @@ export default function OrderSucessPage() {
     const params = useParams();
     const dispatch = useDispatch();
     const user = useSelector(selectLoggedInUser);
-
+    // console.log(user);
     useEffect(() => {
         dispatch(resetCartAsync(user.id));
     },[dispatch,user]);

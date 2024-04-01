@@ -25,6 +25,10 @@ import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import { useEffect } from 'react'
 import PageNotFound from './pages/PageNotFound'
 import OrderSucessPage from './pages/OrderSucessPage';
+import UserOrders from './features/user/components/UserOrder.js';
+import UserProfile from './features/user/components/UserProfile.js';
+import UserProfilePage from './pages/UserProfilePage.js';
+import Logout from './features/auth/components/Logout.js';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +58,18 @@ const router = createBrowserRouter([
   {
     path: "/order-success/:id",
     element: <OrderSucessPage></OrderSucessPage>,
+  },
+  {
+    path: "/orders",
+    element: <UserOrders></UserOrders>,
+  },
+  {
+    path: "/profile",
+    element: <UserProfilePage></UserProfilePage>
+  },
+  {
+    path: "/logout",
+    element: <Logout></Logout>
   },
   {
     path: "*",
